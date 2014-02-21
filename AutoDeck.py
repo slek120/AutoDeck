@@ -90,6 +90,7 @@ while( len(collection) > 0 ):
     else:
         collection.pop()
 
+print(deck)
 print("Total Value: " + str(sum([getValue(x) for x in deck])))
 print("HP:  " + str(sum([x[0] for x in deck])) + "\t#:  " + str(len(deck)))
 print("ATK: " + str(sum([x[1] for x in deck])) + "\tCP: " + str(sum([x[2] for x in deck])))
