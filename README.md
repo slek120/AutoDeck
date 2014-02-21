@@ -3,6 +3,8 @@ AutoDeck
 
 Create a deck with a card limit and cost limit from a collection of cards
 
+Uses a variation of the Greedy approximation algorithm of the [Knapsack problem](http://en.wikipedia.org/wiki/Knapsack_problem#Greedy_approximation_algorithm)
+
 
 Descriptions:
 -------------------------------
