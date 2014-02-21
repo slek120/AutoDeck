@@ -3,7 +3,7 @@ maxCost = 72
 # Deck size
 maxCards = 9
 
-# List of cards with [Atk, Hp, Cost]
+# List of cards with [Hp, Atk, Cost]
 collection = [
     [780,390,13],
     [941,294,7],
@@ -42,9 +42,9 @@ deck = []
 
 # What to use to calculate value
 def getValue(card):
-    #return card[0] # Focus on Atk
-    #return card[1] # Focus on HP
-    #return 3*card[0] + 5*card[1] # Custom balance
+    #return card[0] # Focus on Hp
+    #return card[1] # Focus on Atk
+    #return 5*card[0] + 11*card[1] # Custom balance
     return card[0]+card[1] # Equal balance
 
 # Sort from least cost efficient to most cost efficient
@@ -82,6 +82,6 @@ while( len(collection) > 0 ):
         collection.pop()
 
 print(deck)
-print("Total ATK: " + str(sum([x[0] for x in deck])))
-print("Total HP:  " + str(sum([x[1] for x in deck])))
+print("Total HP:  " + str(sum([x[0] for x in deck])))
+print("Total ATK: " + str(sum([x[1] for x in deck])))
 print("Total All: " + str(sum([x[0] for x in deck]) + sum([x[1] for x in deck])))
