@@ -8,6 +8,8 @@ GreedyDeckBuilder.py uses a variation of the Greedy approximation algorithm of t
 
 0-1KnapsackDeckBuilder.py uses a variation of the dynamic programming method of the [Knapsack problem](http://en.wikipedia.org/wiki/Knapsack_problem#0.2F1_Knapsack_Problem)
 
+MultidimensionalKnapsackDeckBuilder.py is the same as 0-1KnapsackDeckBuilder.py but uses a simpler method that uses an additional dimension which increases the list's size and iteration time
+
 Descriptions:
 ===============================
 Many social games have a system where you can choose a team of up to a set number of cards.
