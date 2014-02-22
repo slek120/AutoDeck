@@ -49,8 +49,8 @@ collection = [
 # Create a list of decks where decks[i][j] is the highest value deck for total cards up to 'i' and total cost up to 'j'
 # Decks[0][0] has total cards 0 and total cost 0 so highest possible value is 0
 # Decks are built from previous lower card and lower cost decks
-# Decks are in the form [j_1, j_2,..., j_n] where j_i is 0 or 1
-# If j_i is 1, collection[i] is used in the deck
+# Decks are in the form [k_1, k_2,..., k_n] where k_i is 0 or 1
+# If k_i is 1, collection[i] is used in the deck
 decks = [[[0 for k in range(len(collection))] for j in range(maxCost+1)] for i in range(maxCards+1)]
 
 # What to use to calculate value
