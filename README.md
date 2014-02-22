@@ -1,5 +1,4 @@
-AutoDeck
-========
+#AutoDeck
 
 Create a deck with a card limit and cost limit from a collection of cards
 
@@ -64,3 +63,13 @@ Procedure:
 7. デッキが最大枚数を超えたら（総コスト－交換カードのコストの差）のデッキで交換して、価値が上がったら最高価値デッキにする
 8. 4~7を繰り返す
 9. 総コストが最大コストに達すると最大価値のデッキを組みました
+
+Multi-dimensional Knapsack
+===============================
+The procedure is the same as the 0/1 knapsack except in step 7:
+
+* If the number of cards exceeds deck size, see if adding card to deck with total cards - 1 gives best value.
+
+アルゴリズムは0/1ナップサック問題と同じです。近いはステップ7だけです：
+
+* デッキが最大枚数を超えたら（枚数－1）のデッキに入れて、価値が上がったら最高価値デッキにする
