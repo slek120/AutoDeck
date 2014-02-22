@@ -44,7 +44,7 @@ collection = [
     ]
 
 # Test with 10,000 cards
-collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(55)]
+#collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(100)]
 
 # Create a list of decks where decks[i] is the highest value deck for total cost up to 'i'
 # Decks[0] has total cost 0 so highest possible value is 0
