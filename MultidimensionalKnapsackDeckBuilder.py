@@ -43,15 +43,15 @@ collection = [
     [512,160,4]
     ]
 
-# Test with 10,000 cards
-#collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(100)]
+# Test with 1,000 cards
+#collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(1000)]
 
 # Create a list of decks where decks[i][j] is the highest value deck for total cards up to 'i' and total cost up to 'j'
 # Decks[0][0] has total cards 0 and total cost 0 so highest possible value is 0
 # Decks are built from previous lower card and lower cost decks
-# Decks are in the form [k_1, k_2,..., k_n] where k_i is 0 or 1
-# If k_i is 1, collection[i] is used in the deck
-decks = [[[0 for k in range(len(collection))] for j in range(maxCost+1)] for i in range(maxCards+1)]
+# Decks are in the form [k_1, k_2,..., k_n] where k_i is True or False
+# If k_i is True, collection[i] is used in the deck
+decks = [[[False for k in range(len(collection))] for j in range(maxCost+1)] for i in range(maxCards+1)]
 
 # What to use to calculate value
 def getValue(card):
@@ -67,26 +67,30 @@ def getCost(card):
 # Get the total value for a given deck
 def getDeckValue(deck):
     total = 0
-    for i,j in enumerate(deck):
-        if(j==1):
+    for i, card in enumerate(deck):
+        if(card):
             total += getValue(collection[i])
     return total
 
 # Get the total cost for a given deck
 def getDeckCost(deck):
     total = 0
-    for i,j in enumerate(deck):
-        if(j==1):
+    for i, card in enumerate(deck):
+        if(card):
             total += getCost(collection[i])
     return total
 
 # Count the number of cards used in a given deck
 def getDeckCount(deck):
-    return sum(deck)
+    total = 0
+    for card in deck:
+        if(card):
+            total += 1
+    return total
 
 # Convert a deck into a list of cards from collection
 def makeDeck(deck):
-    return [collection[i] for i,j in enumerate(deck) if j==1]
+    return [collection[i] for i,card in enumerate(deck) if card]
 
 #Build decks starting from 1 to maxCards
 for n in range(1,maxCards+1):
@@ -104,14 +108,14 @@ for n in range(1,maxCards+1):
                 if( getDeckCount(decks[n][i-getCost(collection[j])]) < n ):
                     # Use the deck where adding this card would give total cost of i
                     testDeck = list(decks[n][i-getCost(collection[j])]) # Copy deck
-                    testDeck[j] = 1 # Add card
+                    testDeck[j] = True # Add card
                     # Check if value is added
                     if( getDeckValue(testDeck) > getDeckValue(decks[n][i]) ):
                         decks[n][i] = list(testDeck) # Copy deck
                 else:
                     # Use the deck where there is space for adding a card
                     testDeck = list(decks[n-1][i-getCost(collection[j])]) # Copy deck
-                    testDeck[j] = 1 # Add card
+                    testDeck[j] = True # Add card
                     # Check if value is added
                     if( getDeckValue(testDeck) > getDeckValue(decks[n][i]) ):
                         decks[n][i] = list(testDeck) # Copy deck
@@ -122,5 +126,3 @@ print("Total Value: " + str(sum([getValue(x) for x in deck])))
 print("HP:  " + str(sum([x[0] for x in deck])) + "\t#:  " + str(len(deck)))
 print("ATK: " + str(sum([x[1] for x in deck])) + "\tCP: " + str(sum([x[2] for x in deck])))
 print("Calc Time: " + str(clock() - start))
-
-
