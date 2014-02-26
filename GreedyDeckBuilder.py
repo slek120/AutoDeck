@@ -44,7 +44,7 @@ collection = [
     ]
 
 # Test with 10,000 cards
-#collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(55)]
+#collection = [ [randint(300,800), randint(150,400), randint(3,13)] for i in range(10000)]
 
 # The result
 deck = []
