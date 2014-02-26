@@ -120,7 +120,7 @@ for n in range(1,maxCards+1):
                     if( getDeckValue(testDeck) > getDeckValue(decks[n][i]) ):
                         decks[n][i] = list(testDeck) # Copy deck
 
-deck = makeDeck(decks[n][maxCost])
+deck = makeDeck(decks[maxCards][maxCost])
 print(deck)
 print("Total Value: " + str(sum([getValue(x) for x in deck])))
 print("HP:  " + str(sum([x[0] for x in deck])) + "\t#:  " + str(len(deck)))
